@@ -1,0 +1,78 @@
+{
+  "id": "lesson-001",
+  "title": "Basic Spanish Vocabulary",
+  "description": "Learn essential Spanish words and phrases",
+  "estimatedTime": 5,
+  "difficulty": "beginner",
+  "streak_increment": 1,
+  "exercises": [
+    {
+      "id": "exercise-001",
+      "type": "mcq",
+      "question": "What is the Spanish word for 'Hello'?",
+      "options": ["Hola", "Adiós", "Gracias", "Por favor"],
+      "correctAnswer": 0,
+      "explanation": "'Hello' means 'Hola' in Spanish."
+    },
+    {
+      "id": "exercise-002",
+      "type": "typeAnswer",
+      "question": "Translate 'Thank you' to Spanish:",
+      "correctAnswer": "gracias",
+      "explanation": "'Thank you' means 'Gracias' in Spanish."
+    },
+    {
+      "id": "exercise-003",
+      "type": "wordBank",
+      "question": "Complete the Spanish sentence: 'Yo ___ a la escuela todos los días.'",
+      "words": ["voy", "vas", "va", "vamos"],
+      "correctAnswer": "voy",
+      "explanation": "The correct form is 'Yo voy a la escuela todos los días.' (I go to school every day.)"
+    },
+    {
+      "id": "exercise-004",
+      "type": "mcq",
+      "question": "What is the Spanish word for 'Book'?",
+      "options": ["Libro", "Bolígrafo", "Escuela", "Casa"],
+      "correctAnswer": 0,
+      "explanation": "'Book' means 'Libro' in Spanish."
+    },
+    {
+      "id": "exercise-005",
+      "type": "typeAnswer",
+      "question": "Translate 'Goodbye' to Spanish:",
+      "correctAnswer": "adiós",
+      "explanation": "'Goodbye' means 'Adiós' in Spanish."
+    },
+    {
+      "id": "exercise-006",
+      "type": "matchPairs",
+      "question": "Match the English words with their Spanish translations:",
+      "pairs": [
+        {
+          "left": "Book",
+          "right": "Libro"
+        },
+        {
+          "left": "Pen",
+          "right": "Bolígrafo"
+        },
+        {
+          "left": "School",
+          "right": "Escuela"
+        },
+        {
+          "left": "House",
+          "right": "Casa"
+        }
+      ],
+      "explanation": "These are basic vocabulary words in English and Spanish."
+    }
+  ],
+  "completionMessage": "Great job! You've completed the basic Spanish vocabulary lesson.",
+  "nextLesson": {
+    "id": "lesson-002",
+    "title": "Spanish Numbers and Counting",
+    "description": "Learn Spanish numbers from 1 to 10"
+  }
+}

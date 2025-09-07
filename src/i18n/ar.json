@@ -1,0 +1,218 @@
+{
+  "common": {
+    "start": "ابدأ",
+    "continue": "متابعة",
+    "next": "التالي",
+    "previous": "السابق",
+    "finish": "إنهاء",
+    "retry": "إعادة المحاولة",
+    "skip": "تخطي",
+    "close": "إغلاق",
+    "cancel": "إلغاء",
+    "confirm": "تأكيد",
+    "loading": "جاري التحميل...",
+    "error": "خطأ",
+    "success": "نجح",
+    "warning": "تحذير"
+  },
+  "navigation": {
+    "lessonStart": "بداية الدرس",
+    "exercisePlayer": "مشغل التمارين",
+    "completion": "الإكمال"
+  },
+  "lessonStart": {
+    "title": "مرحباً بك في درس دوو المصغر",
+    "subtitle": "دعنا نتعلم شيئاً جديداً اليوم!",
+    "description": "هذا الدرس سيساعدك على التدرب وتحسين مهاراتك في اللغة الإسبانية.",
+    "startButton": "ابدأ الدرس",
+    "estimatedTime": "الوقت المقدر",
+    "estimatedTimeValue": "{{min}}-{{max}} دقيقة",
+    "progressInfo": "التقدم: {{current}}/{{total}} • القلوب: {{hearts}} • النقاط: {{xp}} • السلسلة: {{streak}}"
+  },
+  "exercisePlayer": {
+    "title": "تمرين",
+    "progress": "التقدم",
+    "question": "سؤال",
+    "answer": "إجابة",
+    "check": "تحقق",
+    "correct": "صحيح!",
+    "incorrect": "غير صحيح. حاول مرة أخرى.",
+    "explanation": "شرح",
+    "next": "التالي",
+    "finish": "إنهاء"
+  },
+  "completion": {
+    "title": "تم إكمال الدرس!",
+    "congratulations": "تهانينا!",
+    "score": "نقاطك",
+    "xp": "النقاط المكتسبة",
+    "streak": "السلسلة",
+    "nextLesson": "الدرس التالي",
+    "restartLesson": "إعادة تشغيل الدرس",
+    "review": "مراجعة",
+    "share": "مشاركة"
+  },
+  "components": {
+    "progressBar": {
+      "progress": "التقدم"
+    },
+    "streakHearts": {
+      "streak": "السلسلة",
+      "hearts": "القلوب"
+    },
+    "feedbackBanner": {
+      "correct": "عمل رائع!",
+      "incorrect": "ليس صحيحاً تماماً. حاول مرة أخرى!",
+      "hint": "إليك تلميح:"
+    }
+  },
+  "settings": {
+    "theme": "المظهر",
+    "language": "اللغة",
+    "lightTheme": "فاتح",
+    "darkTheme": "داكن",
+    "english": "English",
+    "arabic": "العربية",
+    "spanish": "Español",
+    "learningLanguage": "تعلم الإسبانية",
+    "interfaceLanguage": "لغة الواجهة"
+  },
+  "a11y": {
+    "startLesson": "ابدأ الدرس",
+    "continueLesson": "تابع الدرس الحالي",
+    "gameOver": "انتهت اللعبة! فقدت جميع القلوب. حاول مرة أخرى!",
+    "toggleTheme": "تبديل بين المظهر الفاتح والداكن",
+    "toggleLanguage": "تبديل بين لغات الواجهة الإنجليزية والعربية",
+    "lessonTitle": "عنوان الدرس",
+    "lessonDescription": "وصف الدرس",
+    "estimatedTime": "الوقت المقدر للإكمال",
+    "exerciseCount": "عدد التمارين",
+    "progressBar": "شريط التقدم يوضح {{current}} من {{total}} تمارين مكتملة",
+    "streakCounter": "السلسلة الحالية: {{streak}}",
+    "heartsCounter": "القلوب المتبقية: {{hearts}}",
+    "questionNumber": "السؤال {{current}} من {{total}}",
+    "selectOption": "اختر الخيار {{index}}: {{option}}",
+    "optionSelected": "الخيار {{index}} محدد: {{option}}",
+    "correctAnswer": "الإجابة الصحيحة: {{answer}}",
+    "incorrectAnswer": "إجابة خاطئة: {{answer}}",
+    "typeAnswer": "اكتب إجابتك في حقل النص",
+    "submitAnswer": "أرسل إجابتك",
+    "selectWord": "اختر الكلمة: {{word}}",
+    "wordSelected": "الكلمة المحددة: {{word}}",
+    "feedbackCorrect": "صحيح! {{message}}",
+    "feedbackIncorrect": "غير صحيح. {{message}}",
+    "nextQuestion": "انتقل إلى السؤال التالي",
+    "finishLesson": "إنهاء الدرس",
+    "restartLesson": "إعادة تشغيل الدرس",
+    "xpEarned": "نقاط الخبرة المكتسبة: {{xp}}",
+    "streakIncrement": "السلسلة زادت إلى {{streak}}",
+    "lessonComplete": "تم إكمال الدرس بنجاح",
+    "resumingLesson": "استئناف دروسك من حيث توقفت"
+  },
+  "app": {
+    "resumingLesson": "استئناف دروسك..."
+  },
+  "errors": {
+    "loadingFailed": "فشل في تحميل بيانات الدرس",
+    "networkError": "خطأ في الشبكة. يرجى التحقق من اتصالك.",
+    "unknownError": "حدث خطأ غير معروف. يرجى المحاولة مرة أخرى."
+  },
+  "lesson": {
+    "basicVocabulary": "المفردات الإسبانية الأساسية",
+    "learnEssentialWords": "تعلم الكلمات والعبارات الإسبانية الأساسية",
+    "beginner": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم",
+    "minutes": "دقائق",
+    "min": "دقيقة"
+  },
+  "vocabulary": {
+    "hello": "Hola",
+    "goodbye": "Adiós",
+    "thankYou": "Gracias",
+    "please": "Por favor",
+    "book": "Libro",
+    "pen": "Bolígrafo",
+    "school": "Escuela",
+    "house": "Casa",
+    "numbers": "Números",
+    "counting": "Contar",
+    "water": "Agua",
+    "food": "Comida",
+    "family": "Familia",
+    "friend": "Amigo",
+    "time": "Tiempo",
+    "day": "Día",
+    "night": "Noche",
+    "morning": "Mañana",
+    "afternoon": "Tarde",
+    "evening": "Noche"
+  },
+  "exercises": {
+    "mcq": {
+      "selectAnswer": "اختر الكلمة الإسبانية الصحيحة",
+      "whatIsSpanishWord": "ما هي الكلمة الإسبانية لـ '{{english}}'؟",
+      "translateToSpanish": "ترجم '{{english}}' إلى الإسبانية:",
+      "whatIsEnglishWord": "ما هي الكلمة الإنجليزية لـ '{{spanish}}'؟",
+      "translateToEnglish": "ترجم '{{spanish}}' إلى الإنجليزية:",
+      "whatIsArabicWord": "ما هي الكلمة العربية لـ '{{spanish}}'؟",
+      "translateToArabic": "ترجم '{{spanish}}' إلى العربية:"
+    },
+    "typeAnswer": {
+      "typeAnswer": "اكتب إجابتك بالإسبانية",
+      "placeholder": "أدخل إجابتك الإسبانية هنا...",
+      "translateWord": "ترجم الكلمة إلى الإسبانية",
+      "typeSpanish": "اكتب الكلمة الإسبانية"
+    },
+    "wordBank": {
+      "dragWords": "اسحب الكلمات الإسبانية لإكمال الجملة",
+      "dropZone": "منطقة الإفلات",
+      "completeSentence": "أكمل الجملة الإسبانية: '{{sentence}}'"
+    },
+    "matchPairs": {
+      "matchPairs": "طابق الأزواج",
+      "dragToMatch": "اختر كلمة من العمود الأيسر، ثم اختر مطابقتها من العمود الأيمن",
+      "pairsMatched": "أزواج مطابقة",
+      "matchEnglishWithSpanish": "طابق الكلمات الإنجليزية مع ترجماتها الإسبانية:",
+      "matchArabicWithSpanish": "طابق الكلمات العربية مع ترجماتها الإسبانية:",
+      "basicVocabularyWords": "هذه كلمات مفردات أساسية بالإنجليزية والإسبانية."
+    }
+  },
+  "ui": {
+    "difficulty": "المستوى",
+    "estimatedTime": "الوقت المقدر",
+    "exercises": "التمارين",
+    "hearts": "القلوب",
+    "streak": "السلسلة",
+    "xp": "نقاط الخبرة",
+    "progress": "التقدم",
+    "question": "سؤال",
+    "answer": "إجابة",
+    "correct": "صحيح",
+    "incorrect": "غير صحيح",
+    "explanation": "شرح",
+    "hint": "تلميح",
+    "feedback": "التعليق",
+    "result": "النتيجة",
+    "score": "النتيجة",
+    "points": "النقاط",
+    "level": "المستوى",
+    "complete": "مكتمل",
+    "incomplete": "غير مكتمل",
+    "loading": "جاري التحميل",
+    "saving": "جاري الحفظ",
+    "error": "خطأ",
+    "success": "نجح",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "beginner": "مبتدئ",
+    "intermediate": "متوسط",
+    "advanced": "متقدم",
+    "minutes": "دقائق",
+    "minute": "دقيقة",
+    "min": "دقيقة",
+    "seconds": "ثواني",
+    "second": "ثانية",
+    "sec": "ثانية"
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "common": {
+    "start": "Start",
+    "continue": "Continue",
+    "next": "Next",
+    "previous": "Previous",
+    "finish": "Finish",
+    "retry": "Retry",
+    "skip": "Skip",
+    "close": "Close",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning"
+  },
+  "navigation": {
+    "lessonStart": "Lesson Start",
+    "exercisePlayer": "Exercise Player",
+    "completion": "Completion"
+  },
+  "lessonStart": {
+    "title": "Welcome to Duo Mini Lesson",
+    "subtitle": "Let's learn something new today!",
+    "description": "This lesson will help you practice and improve your Spanish skills.",
+    "startButton": "Start Lesson",
+    "estimatedTime": "Estimated time",
+    "estimatedTimeValue": "{{min}}-{{max}} min",
+    "progressInfo": "Progress: {{current}}/{{total}} • Hearts: {{hearts}} • XP: {{xp}} • Streak: {{streak}}"
+  },
+  "exercisePlayer": {
+    "title": "Exercise",
+    "progress": "Progress",
+    "question": "Question",
+    "answer": "Answer",
+    "check": "Check",
+    "correct": "Correct!",
+    "incorrect": "Incorrect. Try again.",
+    "explanation": "Explanation",
+    "next": "Next",
+    "finish": "Finish"
+  },
+  "completion": {
+    "title": "Lesson Complete!",
+    "congratulations": "Congratulations!",
+    "score": "Your Score",
+    "xp": "XP Earned",
+    "streak": "Streak",
+    "nextLesson": "Next Lesson",
+    "restartLesson": "Restart Lesson",
+    "review": "Review",
+    "share": "Share"
+  },
+  "components": {
+    "progressBar": {
+      "progress": "Progress"
+    },
+    "streakHearts": {
+      "streak": "Streak",
+      "hearts": "Hearts"
+    },
+    "feedbackBanner": {
+      "correct": "Great job!",
+      "incorrect": "Not quite right. Try again!",
+      "hint": "Here's a hint:"
+    }
+  },
+  "settings": {
+    "theme": "Theme",
+    "language": "Language",
+    "lightTheme": "Light",
+    "darkTheme": "Dark",
+    "english": "English",
+    "arabic": "العربية",
+    "spanish": "Español",
+    "learningLanguage": "Learning Spanish",
+    "interfaceLanguage": "Interface Language"
+  },
+  "a11y": {
+    "startLesson": "Start the lesson",
+    "continueLesson": "Continue the current lesson",
+    "gameOver": "Game Over! You lost all your hearts. Try again!",
+    "toggleTheme": "Toggle between light and dark theme",
+    "toggleLanguage": "Toggle between English and Arabic interface languages",
+    "lessonTitle": "Lesson title",
+    "lessonDescription": "Lesson description",
+    "estimatedTime": "Estimated time to complete",
+    "exerciseCount": "Number of exercises",
+    "progressBar": "Progress bar showing {{current}} of {{total}} exercises completed",
+    "streakCounter": "Current streak: {{streak}}",
+    "heartsCounter": "Hearts remaining: {{hearts}}",
+    "questionNumber": "Question {{current}} of {{total}}",
+    "selectOption": "Select option {{index}}: {{option}}",
+    "optionSelected": "Option {{index}} selected: {{option}}",
+    "correctAnswer": "Correct answer: {{answer}}",
+    "incorrectAnswer": "Incorrect answer: {{answer}}",
+    "typeAnswer": "Type your answer in the text field",
+    "submitAnswer": "Submit your answer",
+    "selectWord": "Select word: {{word}}",
+    "wordSelected": "Word selected: {{word}}",
+    "feedbackCorrect": "Correct! {{message}}",
+    "feedbackIncorrect": "Incorrect. {{message}}",
+    "nextQuestion": "Go to next question",
+    "finishLesson": "Finish lesson",
+    "restartLesson": "Restart the lesson",
+    "xpEarned": "Experience points earned: {{xp}}",
+    "streakIncrement": "Streak increased to {{streak}}",
+    "lessonComplete": "Lesson completed successfully",
+    "resumingLesson": "Resuming your lesson from where you left off"
+  },
+  "app": {
+    "resumingLesson": "Resuming your lesson..."
+  },
+
+  "errors": {
+    "loadingFailed": "Failed to load lesson data",
+    "networkError": "Network error. Please check your connection.",
+    "unknownError": "An unknown error occurred. Please try again."
+  },
+  "lesson": {
+    "basicVocabulary": "Basic Spanish Vocabulary",
+    "learnEssentialWords": "Learn essential Spanish words and phrases",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "minutes": "minutes",
+    "min": "min"
+  },
+  "vocabulary": {
+    "hello": "Hola",
+    "goodbye": "Adiós",
+    "thankYou": "Gracias",
+    "please": "Por favor",
+    "book": "Libro",
+    "pen": "Bolígrafo",
+    "school": "Escuela",
+    "house": "Casa",
+    "numbers": "Números",
+    "counting": "Contar",
+    "water": "Agua",
+    "food": "Comida",
+    "family": "Familia",
+    "friend": "Amigo",
+    "time": "Tiempo",
+    "day": "Día",
+    "night": "Noche",
+    "morning": "Mañana",
+    "afternoon": "Tarde",
+    "evening": "Noche"
+  },
+  "exercises": {
+    "mcq": {
+      "selectAnswer": "Select the correct Spanish word",
+      "whatIsSpanishWord": "What is the Spanish word for '{{english}}'?",
+      "translateToSpanish": "Translate '{{english}}' to Spanish:",
+      "whatIsEnglishWord": "What is the English word for '{{spanish}}'?",
+      "translateToEnglish": "Translate '{{spanish}}' to English:",
+      "selectCorrectAnswer": "Select the correct answer"
+    },
+    "typeAnswer": {
+      "typeAnswer": "Type your answer in Spanish",
+      "placeholder": "Enter your Spanish answer here...",
+      "translateWord": "Translate the word to Spanish",
+      "typeSpanish": "Type the Spanish word"
+    },
+    "wordBank": {
+      "dragWords": "Drag the Spanish words to complete the sentence",
+      "dropZone": "Drop zone",
+      "completeSentence": "Complete the Spanish sentence: '{{sentence}}'"
+    },
+    "matchPairs": {
+      "matchPairs": "Match the pairs",
+      "dragToMatch": "Select a word from the left column, then select its match from the right column",
+      "pairsMatched": "pairs matched",
+      "matchEnglishWithSpanish": "Match the English words with their Spanish translations:",
+      "matchArabicWithSpanish": "Match the Arabic words with their Spanish translations:",
+      "basicVocabularyWords": "These are basic vocabulary words in English and Spanish."
+    }
+  },
+
+  "ui": {
+    "difficulty": "Difficulty",
+    "estimatedTime": "Estimated time",
+    "exercises": "Exercises",
+    "hearts": "Hearts",
+    "streak": "Streak",
+    "xp": "XP",
+    "progress": "Progress",
+    "question": "Question",
+    "answer": "Answer",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "explanation": "Explanation",
+    "hint": "Hint",
+    "feedback": "Feedback",
+    "result": "Result",
+    "score": "Score",
+    "points": "Points",
+    "level": "Level",
+    "complete": "Complete",
+    "incomplete": "Incomplete",
+    "loading": "Loading",
+    "saving": "Saving",
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Info",
+    "beginner": "Beginner",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "minutes": "minutes",
+    "minute": "minute",
+    "min": "min",
+    "seconds": "seconds",
+    "second": "second",
+    "sec": "sec"
+  }
+}

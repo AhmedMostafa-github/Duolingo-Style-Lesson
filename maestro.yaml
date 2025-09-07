@@ -1,0 +1,60 @@
+appId: com.duominilesson
+---
+# Complete lesson flow test
+- launchApp
+- assertVisible: 'Basic Vocabulary'
+- assertVisible: 'Start'
+- tapOn: 'Start'
+
+# Complete first exercise (MCQ)
+- assertVisible: 'What is the capital of France?'
+- assertVisible: 'Paris'
+- tapOn: 'Paris'
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Complete second exercise (TypeAnswer)
+- assertVisible: 'Type "hello" in English'
+- inputText: 'hello'
+- tapOn: 'Check'
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Complete third exercise (WordBank)
+- assertVisible: 'Arrange the words to form a sentence'
+- tapOn: 'Hello'
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Complete fourth exercise (MCQ)
+- assertVisible: 'What is the capital of Spain?'
+- tapOn: 'Madrid'
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Complete fifth exercise (TypeAnswer)
+- assertVisible: 'Type "goodbye" in English'
+- inputText: 'goodbye'
+- tapOn: 'Check'
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Complete sixth exercise (WordBank) - make a mistake
+- assertVisible: 'Select the correct word'
+- tapOn: 'wrong' # This should be incorrect
+- assertVisible: 'Next'
+- tapOn: 'Next'
+
+# Check completion screen
+- assertVisible: 'Lesson Complete!'
+- assertVisible: 'XP Earned'
+- assertVisible: 'Streak'
+- assertVisible: 'Restart Lesson'
+
+# Test accessibility
+- assertVisible: 'Start the lesson'
+- assertVisible: 'Question 1 of 6'
+
+# Test small screen layout (360x800)
+- assertVisible: 'Progress'
+- assertVisible: 'Streak'
