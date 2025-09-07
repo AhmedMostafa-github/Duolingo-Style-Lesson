@@ -1,70 +1,388 @@
-# DuoMiniLesson - Language Learning App
+# DuoMiniLesson - Spanish Language Learning App
 
-A React Native language learning app with comprehensive testing, accessibility features, and persistent progress tracking.
+A comprehensive React Native language learning application designed to teach Spanish vocabulary through interactive exercises. The app supports both English and Arabic interface languages, making it accessible to a diverse global audience.
 
-## 🚀 Features
+## 🎯 App Overview
 
-### Core Functionality
+DuoMiniLesson is a mobile-first language learning platform that combines gamification elements with educational content to create an engaging Spanish learning experience. The app features multiple exercise types, progress tracking, and accessibility support.
 
-- **Multiple Exercise Types**: MCQ, TypeAnswer, and WordBank exercises
-- **Progress Tracking**: Hearts system, XP points, and streak counters
-- **Persistent State**: Automatic save/restore with AsyncStorage
-- **Internationalization**: English and Arabic support with RTL layout
-- **Theme Support**: Light and dark themes
-- **Accessibility**: Full screen reader support and WCAG AA compliance
+## 🏗️ Architecture & Technical Implementation
 
-### Exercise Types
+### Core Technologies
 
-1. **Multiple Choice (MCQ)**: Select correct answer from options
-2. **Type Answer**: Type text with case-insensitive validation
-3. **Word Bank**: Select words in correct sequence
+- **React Native 0.81.1** - Cross-platform mobile development
+- **TypeScript** - Type-safe development
+- **Zustand** - State management with persistence
+- **React Navigation** - Screen navigation
+- **React i18next** - Internationalization
+- **AsyncStorage** - Data persistence
+- **React Native Video** - Audio playback for listening exercises
 
-### User Experience
+### State Management Architecture
 
-- **Responsive Design**: Optimized for 360×800 screens and larger
-- **Keyboard Handling**: Proper input focus and submission
-- **Visual Feedback**: Immediate correct/incorrect indicators
-- **Haptic Feedback**: Success/failure vibrations
-- **Smooth Navigation**: Seamless screen transitions
+```mermaid
+graph TB
+    A[App Component] --> B[ThemeProvider]
+    A --> C[HydrationProvider]
+    A --> D[RootNavigator]
 
-## 📱 Installation
+    B --> E[Light/Dark Theme]
+    C --> F[AsyncStorage Wrapper]
+    D --> G[LessonStart Screen]
+    D --> H[ExercisePlayer Screen]
+    D --> I[Completion Screen]
 
-### Prerequisites
+    H --> J[Zustand Store]
+    J --> K[Lesson State]
+    J --> L[Progress State]
+    J --> M[User State]
 
-- Node.js 20+
-- React Native CLI
-- Android Studio (for Android builds)
-- Xcode (for iOS builds)
-
-### Setup
-
-```bash
-# Clone and install dependencies
-git clone <repository-url>
-cd DuoMiniLesson
-npm install
-
-# iOS setup
-cd ios && pod install && cd ..
-
-# Android setup (if needed)
-cd android && ./gradlew clean && cd ..
+    K --> N[Current Exercise]
+    K --> O[Exercise History]
+    L --> P[Hearts System]
+    L --> Q[XP Points]
+    L --> R[Streak Counter]
+    M --> S[Settings]
+    M --> T[Language Preference]
 ```
 
-### Running the App
+### Data Flow Diagram
 
-```bash
-# Start Metro bundler
-npm start
+```mermaid
+sequenceDiagram
+    participant U as User
+    participant EP as ExercisePlayer
+    participant ZS as Zustand Store
+    participant AS as AsyncStorage
+    participant EX as Exercise Component
 
-# Run on iOS
-npm run ios
+    U->>EP: Start Exercise
+    EP->>ZS: Load Lesson Data
+    ZS->>AS: Restore Progress
+    AS-->>ZS: Return Saved State
+    ZS-->>EP: Provide Exercise Data
 
-# Run on Android
-npm run android
+    EP->>EX: Render Exercise
+    U->>EX: Submit Answer
+    EX->>EP: Answer Payload
+    EP->>ZS: Submit Answer
+    ZS->>AS: Save Progress
+    ZS-->>EP: Update State
+    EP-->>U: Show Feedback
 ```
 
-## 🧪 Testing
+## 🎮 Exercise Types & Logic
+
+### 1. Multiple Choice Questions (MCQ)
+
+**Purpose**: Test vocabulary recognition and comprehension
+**Logic**:
+
+- Present question with 4 Spanish word options
+- User selects one option
+- Immediate feedback with correct/incorrect indication
+- Visual styling changes based on result
+
+```typescript
+interface MCQProps {
+  question: string; // "What is the Spanish word for 'Hello'?"
+  options: string[]; // ["Hola", "Adiós", "Gracias", "Por favor"]
+  correctAnswer: number; // Index of correct option (0)
+  onAnswer: (selectedIndex: number) => void;
+  showResult?: boolean; // Show correct/incorrect styling
+}
+```
+
+### 2. Type Answer
+
+**Purpose**: Test spelling and recall ability
+**Logic**:
+
+- Present translation question
+- User types Spanish word/phrase
+- Case-insensitive comparison with normalization
+- Real-time input validation
+
+```typescript
+interface TypeAnswerProps {
+  question: string; // "Translate 'Thank you' to Spanish:"
+  correctAnswer: string; // "gracias"
+  onAnswer: (answer: string) => void;
+  showResult?: boolean; // Show result styling
+}
+```
+
+### 3. Word Bank
+
+**Purpose**: Test contextual understanding and sentence completion
+**Logic**:
+
+- Present incomplete Spanish sentence
+- User selects correct word from bank
+- Contextual validation for sentence completion
+
+```typescript
+interface WordBankProps {
+  question: string; // "Complete: 'Yo ___ a la escuela'"
+  words: string[]; // ["voy", "vas", "va", "vamos"]
+  correctAnswer: string; // "voy"
+  onAnswer: (selectedWord: string) => void;
+}
+```
+
+### 4. Match Pairs
+
+**Purpose**: Test vocabulary association and memory
+**Logic**:
+
+- Present English-Spanish word pairs
+- User matches corresponding translations
+- All pairs must be correct for completion
+- Visual feedback for each match
+
+```typescript
+interface MatchPairsProps {
+  question: string; // "Match English with Spanish:"
+  pairs: Pair[]; // [{left: "Book", right: "Libro"}]
+  onAnswer: (matches: Record<string, string>) => void;
+}
+```
+
+### 5. Listening Exercise
+
+**Purpose**: Test pronunciation recognition and listening comprehension
+**Logic**:
+
+- Play Spanish audio file
+- User types what they hear
+- Tolerance-based matching for pronunciation variations
+- Audio controls for replay
+
+```typescript
+interface ListeningProps {
+  question: string; // "Listen and type what you hear:"
+  audioUrl: string; // "hola.mp3"
+  correctAnswer: string; // "hola"
+  tolerance: number; // Pronunciation tolerance (0-2)
+  onAnswer: (text: string) => void;
+}
+```
+
+## 🎨 User Experience (UX) Design
+
+### Visual Design System
+
+```mermaid
+graph LR
+    A[Design System] --> B[Color Palette]
+    A --> C[Typography]
+    A --> D[Spacing]
+    A --> E[Components]
+
+    B --> F[Light Theme]
+    B --> G[Dark Theme]
+    C --> H[Headings]
+    C --> I[Body Text]
+    C --> J[Button Text]
+    D --> K[Small: 8px]
+    D --> L[Medium: 16px]
+    D --> M[Large: 24px]
+    E --> N[Cards]
+    E --> O[Buttons]
+    E --> P[Progress Bars]
+```
+
+### Screen Flow & Navigation
+
+```mermaid
+graph TD
+    A[App Launch] --> B[LessonStart Screen]
+    B --> C{User Action}
+    C -->|Start Lesson| D[ExercisePlayer Screen]
+    C -->|Settings| E[Settings Modal]
+
+    D --> F[Exercise 1: MCQ]
+    F --> G[Exercise 2: TypeAnswer]
+    G --> H[Exercise 3: WordBank]
+    H --> I[Exercise 4: MCQ]
+    I --> J[Exercise 5: TypeAnswer]
+    J --> K[Exercise 6: MatchPairs]
+    K --> L[Exercise 7: Listening]
+
+    L --> M[Completion Screen]
+    M --> N{Continue?}
+    N -->|Yes| O[Next Lesson]
+    N -->|No| B
+
+    E --> P[Theme Toggle]
+    E --> Q[Language Toggle]
+    P --> B
+    Q --> B
+```
+
+### Gamification Elements
+
+#### Hearts System
+
+- **Initial Hearts**: 3 hearts
+- **Heart Loss**: Incorrect answer removes 1 heart
+- **Game Over**: 0 hearts triggers lesson restart
+- **Visual Feedback**: Heart icons with animations
+
+#### XP & Streak System
+
+- **XP Points**: Earned for correct answers
+- **Streak Counter**: Consecutive correct answers
+- **Progress Tracking**: Visual progress bar
+- **Achievement System**: Streak milestones
+
+#### Progress Visualization
+
+```mermaid
+graph LR
+    A[Progress Bar] --> B[Current: 1/7]
+    A --> C[Percentage: 14%]
+    A --> D[Visual Fill]
+
+    E[Hearts Display] --> F[❤️❤️❤️]
+    E --> G[❤️❤️💔]
+    E --> H[❤️💔💔]
+    E --> I[💔💔💔]
+
+    J[Streak Counter] --> K[🔥 0]
+    J --> L[🔥 3]
+    J --> M[🔥 5]
+```
+
+## 🌍 Internationalization (i18n)
+
+### Language Support Structure
+
+- **Interface Languages**: English, Arabic (RTL)
+- **Learning Language**: Spanish
+- **Content Localization**: All UI text, instructions, and feedback
+
+### RTL (Right-to-Left) Support
+
+```typescript
+// Automatic RTL layout handling
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: I18nManager.isRTL ? 'row-reverse' : 'row',
+    textAlign: I18nManager.isRTL ? 'right' : 'left',
+  },
+});
+```
+
+### Translation Structure
+
+```json
+{
+  "common": {
+    "next": "Next",
+    "finish": "Finish",
+    "loading": "Loading..."
+  },
+  "exercises": {
+    "mcq": {
+      "selectAnswer": "Select the correct answer"
+    },
+    "typeAnswer": {
+      "typeAnswer": "Type your answer:",
+      "placeholder": "Enter Spanish word..."
+    }
+  },
+  "a11y": {
+    "questionNumber": "Question {{current}} of {{total}}",
+    "submitAnswer": "Submit answer"
+  }
+}
+```
+
+## ♿ Accessibility Features
+
+### Screen Reader Support
+
+- **VoiceOver (iOS)**: Full navigation support
+- **TalkBack (Android)**: Complete screen reader integration
+- **Accessibility Labels**: Descriptive text for all interactive elements
+- **Accessibility Hints**: Additional context for complex interactions
+
+### Keyboard Navigation
+
+- **Tab Order**: Logical focus progression
+- **Focus Management**: Automatic focus on input fields
+- **Keyboard Shortcuts**: Submit on Enter key
+- **Focus Indicators**: Clear visual focus states
+
+### Visual Accessibility
+
+- **High Contrast**: WCAG AA compliant color schemes
+- **Touch Targets**: Minimum 44dp touch areas
+- **Font Scaling**: Support for system font size preferences
+- **Color Independence**: Information not conveyed by color alone
+
+## 📱 Platform-Specific Features
+
+### Android Implementation
+
+- **Vibration Permission**: Haptic feedback for answers
+- **Status Bar**: Hidden for immersive experience
+- **Safe Area**: Proper handling of system UI
+- **Back Button**: Navigation support
+
+### iOS Implementation
+
+- **Haptic Feedback**: Native iOS haptic patterns
+- **Safe Area**: Automatic safe area handling
+- **Status Bar**: Transparent with proper styling
+- **Gesture Navigation**: Swipe back support
+
+## 🔧 Technical Implementation Details
+
+### State Persistence
+
+```typescript
+// Zustand store with AsyncStorage persistence
+interface LessonState {
+  lesson: Lesson | null;
+  currentIndex: number;
+  hearts: number;
+  streak: number;
+  xp: number;
+  isComplete: boolean;
+  isGameOver: boolean;
+}
+
+// Automatic save/restore
+const useLessonStore = create<LessonState>()(
+  persist(
+    (set, get) => ({
+      // State implementation
+    }),
+    {
+      name: 'lesson-storage',
+      storage: createJSONStorage(() => AsyncStorage),
+    },
+  ),
+);
+```
+
+### Error Handling
+
+- **Network Errors**: Graceful degradation
+- **Storage Errors**: Fallback to memory state
+- **Audio Errors**: Alternative text-based exercises
+- **Validation Errors**: User-friendly error messages
+
+### Performance Optimizations
+
+- **Lazy Loading**: Components loaded on demand
+- **Memoization**: React.memo for expensive components
+- **Bundle Splitting**: Separate bundles for different features
+- **Image Optimization**: Compressed assets and lazy loading
+
+## 🧪 Testing Strategy
 
 ### Test Coverage
 
@@ -73,232 +391,91 @@ npm run android
 - **Accessibility Tests**: Screen reader and keyboard navigation
 - **E2E Tests**: Complete user journey validation
 
-### Running Tests
+### Test Types
+
+```mermaid
+graph TB
+    A[Testing Pyramid] --> B[E2E Tests]
+    A --> C[Integration Tests]
+    A --> D[Unit Tests]
+
+    B --> E[User Journeys]
+    B --> F[Cross-Platform]
+    C --> G[State Management]
+    C --> H[API Integration]
+    D --> I[Component Logic]
+    D --> J[Utility Functions]
+```
+
+## 🚀 Build & Deployment
+
+### Development Build
 
 ```bash
-# Unit tests
-npm test
+# Install dependencies
+npm install
 
-# Tests with coverage
-npm run test:coverage
-
-# Watch mode
-npm run test:watch
-
-# E2E tests (requires Maestro)
-./scripts/test-e2e.sh
-```
-
-### Test Structure
-
-```
-__tests__/
-├── components/          # Component tests
-├── screens/            # Screen tests
-├── exercises/          # Exercise component tests
-├── state/              # State management tests
-└── e2e/                # End-to-end tests
-```
-
-## 🏗️ Building
-
-### Debug APK
-
-```bash
-# Build Android debug APK
-npm run build:android
-
-# Or use the build script
-./scripts/build-apk.sh
-```
-
-The debug APK will be available at:
-
-```
-android/app/build/outputs/apk/debug/app-debug.apk
-```
-
-### Release Build
-
-```bash
-# Build Android release APK
-npm run build:android-release
-```
-
-## 🎯 Key Components
-
-### State Management
-
-- **Zustand Store**: Centralized state with persistence
-- **AsyncStorage**: Automatic save/restore functionality
-- **Fallback Handling**: Graceful degradation if storage fails
-
-### Navigation
-
-- **React Navigation**: Stack-based navigation
-- **Auto-routing**: Resume mid-lesson on app restart
-- **Deep Linking**: Support for exercise-specific URLs
-
-### Accessibility
-
-- **Screen Reader**: Full VoiceOver/TalkBack support
-- **Keyboard Navigation**: Tab order and focus management
-- **High Contrast**: WCAG AA compliant color schemes
-- **Touch Targets**: Minimum 44dp touch areas
-
-### Internationalization
-
-- **Multi-language**: English and Arabic support
-- **RTL Layout**: Proper right-to-left text direction
-- **Localized Content**: All UI text and messages
-
-## 📊 Architecture
-
-### File Structure
-
-```
-src/
-├── components/         # Reusable UI components
-├── exercises/          # Exercise type implementations
-├── screens/           # Main app screens
-├── state/             # Zustand store and types
-├── theme/             # Light/dark theme definitions
-├── i18n/              # Internationalization files
-├── navigation/        # Navigation configuration
-└── utils/             # Utility functions
-```
-
-### State Flow
-
-1. **App Start**: Load lesson data and check for mid-lesson state
-2. **Exercise Flow**: Present exercises, collect answers, update progress
-3. **Persistence**: Auto-save after each answer submission
-4. **Completion**: Show results, update streak, allow restart
-
-### Data Flow
-
-```
-Lesson JSON → Store → Components → User Input → Store → Persistence
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-
-```bash
-# Optional: Custom lesson data path
-LESSON_DATA_PATH=./src/assets/lesson.json
-
-# Optional: Storage key prefix
-STORAGE_KEY_PREFIX=duo-lesson
-```
-
-### Theme Customization
-
-Edit `src/theme/light.ts` and `src/theme/dark.ts` to customize colors, spacing, and typography.
-
-### Adding New Exercise Types
-
-1. Create component in `src/exercises/`
-2. Add type to `Exercise` union in `src/state/lessonStore.ts`
-3. Update `renderExercise()` in `ExercisePlayer.tsx`
-4. Add tests in `__tests__/exercises/`
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-#### AsyncStorage Not Working
-
-```bash
-# Clear Metro cache
-npx react-native start --reset-cache
-
-# Reinstall pods (iOS)
+# iOS setup
 cd ios && pod install && cd ..
 
-# Clean Android build
-cd android && ./gradlew clean && cd ..
+# Run development
+npm run ios
+npm run android
 ```
 
-#### Tests Failing
+### Production Build
 
 ```bash
-# Clear Jest cache
-npm test -- --clearCache
+# Android Release APK
+cd android && ./gradlew assembleRelease
 
-# Check Jest configuration
-npm test -- --verbose
+# Output: android/app/build/outputs/apk/release/app-release.apk
 ```
 
-#### Build Issues
+### Build Configuration
 
-```bash
-# Clean all builds
-npm run clean
+- **Debug Build**: Development features enabled
+- **Release Build**: Optimized for production
+- **Code Signing**: Proper certificate configuration
+- **Asset Optimization**: Compressed images and fonts
 
-# Reset Metro cache
-npx react-native start --reset-cache
-```
+## 📊 Analytics & Monitoring
 
-## 📈 Performance
+### User Engagement Metrics
 
-### Optimizations
+- **Exercise Completion Rate**: Track user progress
+- **Error Rate**: Monitor technical issues
+- **Session Duration**: Measure engagement
+- **Feature Usage**: Identify popular exercises
 
-- **Selective Re-renders**: Zustand selectors prevent unnecessary updates
-- **Lazy Loading**: Components loaded only when needed
-- **Memory Management**: Proper cleanup of timers and listeners
-- **Image Optimization**: Efficient asset loading
+### Performance Monitoring
 
-### Metrics
+- **App Launch Time**: Track startup performance
+- **Memory Usage**: Monitor resource consumption
+- **Crash Reports**: Automatic error reporting
+- **Network Performance**: API response times
 
-- **Bundle Size**: ~2.5MB (debug), ~1.8MB (release)
-- **Startup Time**: <2 seconds on modern devices
-- **Memory Usage**: <50MB typical usage
+## 🔮 Future Enhancements
 
-## 🔒 Security
+### Planned Features
 
-### Data Protection
+- **Offline Mode**: Complete offline functionality
+- **Social Features**: Leaderboards and sharing
+- **Advanced Analytics**: Detailed learning insights
+- **Voice Recognition**: Speech-to-text exercises
+- **AR Integration**: Augmented reality vocabulary
 
-- **Local Storage Only**: No external data transmission
-- **Input Sanitization**: All user inputs validated
-- **Error Boundaries**: Graceful error handling
+### Scalability Considerations
 
-### Privacy
+- **Multi-Language Support**: Additional interface languages
+- **Content Management**: Dynamic lesson updates
+- **User Accounts**: Cloud sync and progress backup
+- **Adaptive Learning**: AI-powered difficulty adjustment
 
-- **No Analytics**: No user tracking or data collection
-- **Offline First**: Works without internet connection
-- **Data Control**: Users control their own progress data
+## 📄 License & Credits
 
-## 🤝 Contributing
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch
-3. Make changes with tests
-4. Run the test suite
-5. Submit a pull request
-
-### Code Style
-
-- **ESLint**: Enforced code formatting
-- **Prettier**: Consistent code style
-- **TypeScript**: Strict type checking
-- **Testing**: 70% minimum coverage
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🙏 Acknowledgments
-
-- **React Native**: Mobile app framework
-- **Zustand**: State management
-- **React Navigation**: Navigation library
-- **React i18next**: Internationalization
-- **Testing Library**: Testing utilities
+This project is developed as a demonstration of modern React Native development practices, incorporating accessibility, internationalization, and comprehensive testing strategies.
 
 ---
 
-**Built with ❤️ for language learners everywhere**
+**Built with ❤️ using React Native, TypeScript, and modern mobile development best practices.**

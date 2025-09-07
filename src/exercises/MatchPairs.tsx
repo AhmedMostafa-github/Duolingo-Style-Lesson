@@ -70,9 +70,9 @@ const MatchPairs: React.FC<MatchPairsProps> = ({
     setMatches(newMatches);
     setSelectedLeft(null);
 
-    // Check if all pairs are matched AND if they are correct
-    const allMatched = pairs.every(
-      pair => newMatches[pair.left] === pair.right,
+    // Check if all pairs are matched (regardless of correctness)
+    const allPairsMatched = pairs.every(
+      pair => newMatches[pair.left] !== undefined,
     );
 
     // Debug logging
@@ -80,7 +80,7 @@ const MatchPairs: React.FC<MatchPairsProps> = ({
       console.log('🔍 MatchPairs Debug:');
       console.log('Original pairs:', pairs);
       console.log('User matches:', newMatches);
-      console.log('All matched and correct:', allMatched);
+      console.log('All pairs matched:', allPairsMatched);
       pairs.forEach(pair => {
         const userMatch = newMatches[pair.left];
         const isCorrect = userMatch === pair.right;
@@ -90,8 +90,8 @@ const MatchPairs: React.FC<MatchPairsProps> = ({
       });
     }
 
-    // Only call onAnswer when all pairs are matched AND correct
-    if (allMatched) {
+    // Call onAnswer when all pairs are matched (regardless of correctness)
+    if (allPairsMatched) {
       onAnswer(newMatches);
     }
   };
