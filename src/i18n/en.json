@@ -176,6 +176,16 @@
       "matchEnglishWithSpanish": "Match the English words with their Spanish translations:",
       "matchArabicWithSpanish": "Match the Arabic words with their Spanish translations:",
       "basicVocabularyWords": "These are basic vocabulary words in English and Spanish."
+    },
+    "listening": {
+      "instruction": "Listen to the audio and type what you hear in Spanish:",
+      "play": "Play",
+      "stop": "Stop",
+      "playAudio": "Play audio",
+      "stopAudio": "Stop audio",
+      "placeholder": "Type what you hear...",
+      "inputLabel": "Text input for what you hear",
+      "submit": "Submit Answer"
     }
   },
 

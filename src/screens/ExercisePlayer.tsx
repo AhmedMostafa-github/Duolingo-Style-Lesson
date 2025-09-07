@@ -25,6 +25,7 @@ import MCQ from '../exercises/MCQ';
 import TypeAnswer from '../exercises/TypeAnswer';
 import WordBank from '../exercises/WordBank';
 import MatchPairs from '../exercises/MatchPairs';
+import Listening from '../exercises/Listening';
 import { useLessonStore, AnswerPayload } from '../state/lessonStore';
 
 type ExercisePlayerNavigationProp = NativeStackNavigationProp<
@@ -311,11 +312,23 @@ const ExercisePlayer: React.FC = () => {
           />
         );
 
+      case 'listening':
+        return (
+          <Listening
+            question={currentExercise.question}
+            audioUrl={currentExercise.audioUrl}
+            correctAnswer={currentExercise.correctAnswer}
+            onAnswer={text => handleAnswer({ type: 'listening', text })}
+            tolerance={currentExercise.tolerance}
+            {...commonProps}
+          />
+        );
+
       default:
         return (
           <View style={styles.unsupportedContainer}>
             <Text style={styles.unsupportedText}>
-              Unsupported exercise type: {currentExercise.type}
+              Unsupported exercise type: {(currentExercise as any).type}
             </Text>
           </View>
         );

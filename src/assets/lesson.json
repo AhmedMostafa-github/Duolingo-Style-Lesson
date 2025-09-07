@@ -67,6 +67,15 @@
         }
       ],
       "explanation": "These are basic vocabulary words in English and Spanish."
+    },
+    {
+      "id": "exercise-007",
+      "type": "listening",
+      "question": "Listen to the audio and type what you hear:",
+      "audioUrl": "hola.mp3",
+      "correctAnswer": "hola",
+      "tolerance": 0,
+      "explanation": "The audio says 'Hola' which means 'Hello' in Spanish."
     }
   ],
   "completionMessage": "Great job! You've completed the basic Spanish vocabulary lesson.",
